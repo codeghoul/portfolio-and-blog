@@ -33,9 +33,6 @@ export default function HomePage() {
                 experience across different industries & technologies.
               </p>
             </div>
-            <Link href='/posts'>
-              <a className='underline italic'>Checkout my blog posts!</a>
-            </Link>
           </div>
         </section>
       </Layout>
