@@ -2,7 +2,8 @@ import MoreStories from '../components/more-stories'
 import HeroPost from '../components/hero-post'
 import Layout from '../components/layout'
 import { getAllPostsForHome } from '../lib/api'
-import Head from 'next/head'
+import siteMetadata from '../data/siteMetadata'
+import { PageSeo } from '../components/SEO'
 
 export default function Blogs({ preview, allPosts }) {
   const heroPost = allPosts[0]
@@ -10,9 +11,11 @@ export default function Blogs({ preview, allPosts }) {
   return (
     <>
       <Layout preview={preview}>
-        <Head>
-          <title>Blogs.</title>
-        </Head>
+        <PageSeo
+          title={`Blogs by`}
+          description={siteMetadata.description}
+          url={`${siteMetadata.siteUrl}/blogs`}
+        />
         {heroPost && (
           <HeroPost
             title={heroPost.title}

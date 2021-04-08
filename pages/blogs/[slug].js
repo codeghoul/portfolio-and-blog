@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router'
-import Head from 'next/head'
 import ErrorPage from 'next/error'
 import PostBody from '../../components/post-body'
 import MoreStories from '../../components/more-stories'
@@ -8,7 +7,8 @@ import SectionSeparator from '../../components/section-separator'
 import Layout from '../../components/layout'
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
-import { CMS_NAME } from '../../lib/constants'
+import { BlogSeo } from '../../components/SEO'
+import siteMetadata from '../../data/siteMetadata'
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
@@ -19,17 +19,12 @@ export default function Post({ post, morePosts, preview }) {
 
   return (
     <Layout preview={preview}>
+      <BlogSeo url={`${siteMetadata.siteUrl}/blogs/${post.slug}`} {...post} />
       {router.isFallback ? (
         <PostTitle>Loading…</PostTitle>
       ) : (
         <>
           <article>
-            <Head>
-              <title>
-                {post.title} | Next.js Blog Example with {CMS_NAME}
-              </title>
-              <meta property='og:image' content={post.coverImage.url} />
-            </Head>
             <PostHeader
               title={post.title}
               coverImage={post.coverImage}

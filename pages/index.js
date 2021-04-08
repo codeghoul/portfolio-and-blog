@@ -1,14 +1,16 @@
-import Link from 'next/link'
 import Layout from '../components/layout'
-import Head from 'next/head'
+import siteMetadata from '../data/siteMetadata'
+import { PageSeo } from '../components/SEO'
 
 export default function HomePage() {
   return (
     <>
       <Layout preview={false}>
-        <Head>
-          <title>Welcome to my Website!</title>
-        </Head>
+        <PageSeo
+          title={siteMetadata.title}
+          description={siteMetadata.description}
+          url={siteMetadata.siteUrl}
+        />
         <section className='text-gray-600'>
           <div className='container mx-auto flex px-5 py-24 items-center justify-center flex-col'>
             <img

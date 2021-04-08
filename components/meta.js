@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { SEO as siteData } from './SEO'
 
 export default function Meta() {
   return (
@@ -32,30 +33,19 @@ export default function Meta() {
       <meta name='msapplication-TileColor' content='#000000' />
       <meta name='msapplication-config' content='/favicon/browserconfig.xml' />
       <meta name='theme-color' content='#000' />
-      <meta charset='utf-8' />
+      <meta charSet='utf-8' />
       <meta name='robots' content='index, follow' />
       <meta
         name='viewport'
         content='width=device-width, initial-scale=1.0, maximum-scale=1'
       />
       <meta
-        name='description'
-        content="Jayesh Patel's blog create with lots of love, code and coffee."
-      />
-      <meta
         name='keywords'
         content='jayesh, patel, backend, developer, research, engineer, distributed, systems, development'
       />
-      <meta name='author' content='Jayesh Patel' />
+      <meta name='author' content={siteData.author} />
       <meta name='theme-color' content='#000000' />
-
       <meta property='og:type' content='website' />
-      <meta
-        property='og:description'
-        content="Jayesh Patel's blog create with lots of love, code and coffee."
-      />
-
-      <meta property='og:url' content='https://www.jysh.me' />
     </Head>
   )
 }
