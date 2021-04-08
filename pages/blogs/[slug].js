@@ -19,7 +19,9 @@ export default function Post({ post, morePosts, preview }) {
 
   return (
     <Layout preview={preview}>
-      <BlogSeo url={`${siteMetadata.siteUrl}/blogs/${post.slug}`} {...post} />
+      {post && (
+        <BlogSeo url={`${siteMetadata.siteUrl}/blogs/${post.slug}`} {...post} />
+      )}
       {router.isFallback ? (
         <PostTitle>Loading…</PostTitle>
       ) : (
@@ -45,7 +47,6 @@ export default function Post({ post, morePosts, preview }) {
 
 export async function getStaticProps({ params, preview = false }) {
   const data = await getPostAndMorePosts(params.slug, preview)
-
   return {
     props: {
       preview,
