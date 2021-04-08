@@ -5,14 +5,14 @@ import Layout from '../components/layout'
 import { getAllPostsForHome } from '../lib/api'
 import Head from 'next/head'
 
-export default function Index({ preview, allPosts }) {
+export default function Blogs({ preview, allPosts }) {
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1)
   return (
     <>
       <Layout preview={preview}>
         <Head>
-          <title>Posts.</title>
+          <title>Blogs.</title>
         </Head>
         <Intro />
         {heroPost && (
