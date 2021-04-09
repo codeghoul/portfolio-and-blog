@@ -1,14 +1,11 @@
 import Link from 'next/link'
-import Avatar from '../components/avatar'
 import DateComponent from '../components/date'
-import CoverImage from './cover-image'
 
 export default function PostPreview({
   title,
   coverImage,
   date,
   excerpt,
-  author,
   slug,
 }) {
   const image = (
@@ -20,7 +17,7 @@ export default function PostPreview({
   )
 
   return (
-    <div className='m-5 shadow-lg hover:shadow-xl rounded-lg'>
+    <div className='shadow-lg hover:shadow-xl rounded-lg'>
       <div className='mb-5'>
         {slug ? (
           <Link as={`/blogs/${slug}`} href='/blogs/[slug]'>
@@ -42,7 +39,6 @@ export default function PostPreview({
         <p className='text-md lg:text-lg leading-relaxed mb-4 line-clamp-2 lg:line-clamp-3'>
           {excerpt}
         </p>
-        {author && <Avatar name={author.name} picture={author.picture} />}
       </div>
     </div>
   )

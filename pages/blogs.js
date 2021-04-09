@@ -1,5 +1,5 @@
 import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
+import PostPreview from '../components/post-preview'
 import Layout from '../components/layout'
 import { getAllPostsForHome } from '../lib/api'
 import siteMetadata from '../data/siteMetadata'
@@ -17,14 +17,17 @@ export default function Blogs({ preview, allPosts }) {
           url={`${siteMetadata.siteUrl}/blogs`}
         />
         {heroPost && (
-          <HeroPost
-            title={heroPost.title}
-            coverImage={heroPost.coverImage}
-            date={heroPost.date}
-            author={heroPost.author}
-            slug={heroPost.slug}
-            excerpt={heroPost.excerpt}
-          />
+          <div className='my-4 md:my-6'>
+            <PostPreview
+              key={heroPost.slug}
+              title={heroPost.title}
+              coverImage={heroPost.coverImage}
+              date={heroPost.date}
+              author={heroPost.author}
+              slug={heroPost.slug}
+              excerpt={heroPost.excerpt}
+            />
+          </div>
         )}
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
       </Layout>
