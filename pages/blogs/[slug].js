@@ -9,6 +9,7 @@ import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import { BlogSeo } from '../../components/seo'
 import siteMetadata from '../../data/siteMetadata'
+import markdownToHtml from '../../lib/markdownToHtml'
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
@@ -47,10 +48,18 @@ export default function Post({ post, morePosts, preview }) {
 
 export async function getStaticProps({ params, preview = false }) {
   const data = await getPostAndMorePosts(params.slug, preview)
+
+  const post = data?.post ?? {}
+
+  const content = await markdownToHtml(post.content || '')
+
   return {
     props: {
       preview,
-      post: data?.post ?? null,
+      post: {
+        ...post,
+        content,
+      },
       morePosts: data?.morePosts ?? null,
     },
   }
