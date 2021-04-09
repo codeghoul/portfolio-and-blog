@@ -7,7 +7,7 @@ import SectionSeparator from '../../components/section-separator'
 import Layout from '../../components/layout'
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
-import { BlogSeo } from '../../components/SEO'
+import { BlogSeo } from '../../components/seo'
 import siteMetadata from '../../data/siteMetadata'
 
 export default function Post({ post, morePosts, preview }) {

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { SEO as siteData } from './SEO'
+import { SEO as siteData } from './seo'
 
 export default function Meta() {
   return (

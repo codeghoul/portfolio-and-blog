@@ -3,7 +3,7 @@ import HeroPost from '../components/hero-post'
 import Layout from '../components/layout'
 import { getAllPostsForHome } from '../lib/api'
 import siteMetadata from '../data/siteMetadata'
-import { PageSeo } from '../components/SEO'
+import { PageSeo } from '../components/seo'
 
 export default function Blogs({ preview, allPosts }) {
   const heroPost = allPosts[0]
