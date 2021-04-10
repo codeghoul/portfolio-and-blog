@@ -7,7 +7,12 @@ export default function Header() {
     <header className='px-5 py-2 flex flex-row items-center justify-between'>
       <Link href='/'>
         <a className='w-8 h-8 md:w-10 md:h-10 shadow-2xl'>
-          <Image src='/favicon/favicon-96x96.png' width={96} height={96} />
+          <Image
+            src='/favicon/favicon-96x96.png'
+            width={96}
+            height={96}
+            alt='Home Logo'
+          />
         </a>
       </Link>
       <nav className='flex items-center text-gray-600 dark:text-gray-300'>
