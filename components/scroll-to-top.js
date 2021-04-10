@@ -20,7 +20,9 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     window.addEventListener('scroll', toggleVisibility)
-  }, [])
+
+    return () => window.removeEventListener('scroll', toggleVisibility)
+  }, [isVisible])
 
   return (
     <div className='fixed bottom-2 right-2 md:bottom-5 md:right-5 z-50'>
