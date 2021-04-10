@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import DateComponent from '../components/date'
 
 export default function PostPreview({
@@ -9,10 +10,13 @@ export default function PostPreview({
   slug,
 }) {
   const image = (
-    <img
+    <Image
       className='lg:h-full md:h-36 w-full object-cover object-center rounded-lg rounded-b-none'
       src={coverImage.url}
       alt={`Cover Image for ${title}`}
+      width={1200}
+      height={630}
+      layout='responsive'
     />
   )
 
