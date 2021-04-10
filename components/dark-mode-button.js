@@ -19,7 +19,7 @@ export default function DarkModeButton() {
     <button
       aria-label='Toggle Dark Mode'
       type='button'
-      className='mx-2 focus:outline-none'
+      className='w-8 h-8 md:w-10 md:h-10 focus:outline-none'
       onClick={switchTheme}
     >
       {isMounted && (
@@ -28,7 +28,7 @@ export default function DarkModeButton() {
           viewBox='0 0 24 24'
           fill='currentColor'
           stroke='currentColor'
-          className='h-6 w-6 text-gray-800 dark:text-gray-200'
+          className='h-6 w-6 mx-auto text-gray-800 dark:text-gray-200'
         >
           {theme === 'dark' ? (
             <path

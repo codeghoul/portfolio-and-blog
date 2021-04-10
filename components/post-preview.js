@@ -11,7 +11,7 @@ export default function PostPreview({
 }) {
   const image = (
     <Image
-      className='lg:h-full md:h-36 w-full object-cover object-center rounded-lg rounded-b-none'
+      className='lg:h-full md:h-36 w-full object-cover object-center'
       src={coverImage.url}
       alt={`Cover Image for ${title}`}
       width={1200}
@@ -21,7 +21,7 @@ export default function PostPreview({
   )
 
   return (
-    <div className='shadow-lg hover:shadow-xl rounded-lg dark:bg-gray-800'>
+    <div className='shadow-lg hover:shadow-xl dark:bg-gray-800'>
       <div className='mb-5'>
         {slug ? (
           <Link as={`/blogs/${slug}`} href='/blogs/[slug]'>

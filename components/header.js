@@ -1,24 +1,23 @@
 import Link from 'next/link'
-import Meta from './meta'
+import Image from 'next/image'
 import DarkModeButton from './dark-mode-button'
 
 export default function Header() {
   return (
-    <header>
-      <Meta />
-      <div className='flex flex-wrap p-5 flex-col md:flex-row items-center'>
-        <Link href='/'>
-          <a className='hover:underline text-2xl font-extrabold'>JYSH</a>
+    <header className='px-5 py-2 flex flex-row items-center justify-between'>
+      <Link href='/'>
+        <a className='w-8 h-8 md:w-10 md:h-10 shadow-2xl'>
+          <Image src='/favicon/favicon-96x96.png' width={96} height={96} />
+        </a>
+      </Link>
+      <nav className='flex items-center text-gray-600 dark:text-gray-300'>
+        <Link href='/blogs'>
+          <a className='p-1 font-medium text-gray-900 sm:p-4 dark:text-gray-100'>
+            Blog
+          </a>
         </Link>
-        <nav className='md:ml-auto flex flex-wrap items-center font-bold justify-center text-gray-600 dark:text-gray-300'>
-          <Link href='/blogs'>
-            <a className='mx-2 hover:text-gray-900 dark:hover:text-gray-100'>
-              Blogs
-            </a>
-          </Link>
-          <DarkModeButton />
-        </nav>
-      </div>
+      </nav>
+      <DarkModeButton />
     </header>
   )
 }
