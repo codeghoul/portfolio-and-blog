@@ -3,6 +3,7 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
+  darkMode: 'class',
   purge: false,
   theme: {
     extend: {
@@ -32,6 +33,25 @@ module.exports = {
         small: '0 5px 10px rgba(0, 0, 0, 0.12)',
         medium: '0 8px 30px rgba(0, 0, 0, 0.12)',
       },
+      typography: (theme) => ({
+        dark: {
+          css: {
+            color: theme('colors.gray.100'),
+
+            a: {
+              color: theme('colors.blue.100'),
+              '&:hover': {
+                color: theme('colors.blue.100'),
+              },
+            },
+          },
+        },
+      }),
+    },
+  },
+  variants: {
+    extend: {
+      typography: ['dark'],
     },
   },
   plugins: [

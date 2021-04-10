@@ -17,7 +17,7 @@ export default function PostPreview({
   )
 
   return (
-    <div className='shadow-lg hover:shadow-xl rounded-lg'>
+    <div className='shadow-lg hover:shadow-xl rounded-lg dark:bg-gray-800'>
       <div className='mb-5'>
         {slug ? (
           <Link as={`/blogs/${slug}`} href='/blogs/[slug]'>
@@ -33,7 +33,7 @@ export default function PostPreview({
             <a className='hover:underline'>{title}</a>
           </Link>
         </h3>
-        <div className='text-gray-600 text:sm lg:text-lg mb-4'>
+        <div className='text-gray-600 text:sm lg:text-lg mb-4 dark:text-gray-400'>
           <DateComponent dateString={date} />
         </div>
         <p className='text-md lg:text-lg leading-relaxed mb-4 line-clamp-2 lg:line-clamp-3'>

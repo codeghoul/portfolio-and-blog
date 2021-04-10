@@ -11,15 +11,15 @@ export default function HomePage() {
           description={siteMetadata.description}
           url={siteMetadata.siteUrl}
         />
-        <section className='text-gray-600'>
-          <div className='container mx-auto flex px-5 py-24 items-center justify-center flex-col'>
-            <img
+        <section className='text-gray-600 dark:text-gray-300'>
+          <div className='container mx-auto flex px-5 py-18 items-center justify-center flex-col'>
+            {/* <img
               className='lg:w-2/6 md:w-3/6 w-5/6 object-cover object-center rounded'
               alt='hero'
-              src='https://dummyimage.com/720x600'
-            />
-            <div className='text-center lg:w-2/3 w-full mt-10'>
-              <h1 className='title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900'>
+              src='/images/myself.png'
+            /> */}
+            <div className='text-center lg:w-2/3 w-full mt-20 md:mt-32 lg:mt-56'>
+              <h1 className='title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 dark:text-gray-200'>
                 Hi! I'm Jayesh!
               </h1>
               <p className='mb-8 leading-relaxed'>

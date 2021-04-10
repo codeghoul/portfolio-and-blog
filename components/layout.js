@@ -6,7 +6,7 @@ import Container from './container'
 export default function Layout({ preview, children }) {
   return (
     <>
-      <Alert preview={preview} />
+      {preview && <Alert />}
       <Header />
       <div className='min-h-screen'>
         <main>
