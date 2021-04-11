@@ -1,17 +1,17 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import PostBody from '../../components/post-body'
-import MoreStories from '../../components/more-stories'
 import PostHeader from '../../components/post-header'
-import SectionSeparator from '../../components/section-separator'
 import Layout from '../../components/layout'
-import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
+import { getAllPostsWithSlug, getPost } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import { BlogSeo } from '../../components/seo'
 import siteMetadata from '../../data/siteMetadata'
 import markdownToHtml from '../../lib/markdownToHtml'
+import SectionSeparator from '../../components/section-separator'
+import Link from 'next/link'
 
-export default function Post({ post, morePosts, preview }) {
+export default function Post({ preview, post, next, prev }) {
   const router = useRouter()
 
   if (!router.isFallback && !post) {
@@ -35,11 +35,22 @@ export default function Post({ post, morePosts, preview }) {
               author={post.author}
             />
             <PostBody content={post.content} />
+            <SectionSeparator />
+            {(next || prev) && (
+              <div className='w-11/12 md:w-8/12 mx-auto flex py-4 '>
+                {prev && (
+                  <div className='text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 object-left'>
+                    <Link href={`/blogs/${prev.slug}`}>← Previous</Link>
+                  </div>
+                )}
+                {next && (
+                  <div className='text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 ml-auto'>
+                    <Link href={`/blogs/${next.slug}`}>Next →</Link>
+                  </div>
+                )}
+              </div>
+            )}
           </article>
-          <SectionSeparator />
-          {morePosts && morePosts.length > 0 && (
-            <MoreStories posts={morePosts} />
-          )}
         </>
       )}
     </Layout>
@@ -47,7 +58,7 @@ export default function Post({ post, morePosts, preview }) {
 }
 
 export async function getStaticProps({ params, preview = false }) {
-  const data = await getPostAndMorePosts(params.slug, preview)
+  const data = await getPost(params.slug, preview)
 
   const post = data?.post ?? {}
 
@@ -60,7 +71,8 @@ export async function getStaticProps({ params, preview = false }) {
         ...post,
         content,
       },
-      morePosts: data?.morePosts ?? null,
+      next: data?.next,
+      prev: data?.prev,
     },
   }
 }
