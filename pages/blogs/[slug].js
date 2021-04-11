@@ -26,32 +26,30 @@ export default function Post({ preview, post, next, prev }) {
       {router.isFallback ? (
         <PostTitle>Loading…</PostTitle>
       ) : (
-        <>
-          <article className='w-11/12 md:w-8/12 mx-auto'>
-            <PostHeader
-              title={post.title}
-              coverImage={post.coverImage}
-              date={post.date}
-              author={post.author}
-            />
-            <PostBody content={post.content} />
-            <SectionSeparator />
-            {(next || prev) && (
-              <div className='flex py-4'>
-                {prev && (
-                  <div className='text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 object-left'>
-                    <Link href={`/blogs/${prev.slug}`}>← Previous</Link>
-                  </div>
-                )}
-                {next && (
-                  <div className='text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 ml-auto'>
-                    <Link href={`/blogs/${next.slug}`}>Next →</Link>
-                  </div>
-                )}
-              </div>
-            )}
-          </article>
-        </>
+        <article>
+          <PostHeader
+            title={post.title}
+            coverImage={post.coverImage}
+            date={post.date}
+            author={post.author}
+          />
+          <PostBody content={post.content} />
+          <SectionSeparator />
+          {(next || prev) && (
+            <div className='flex py-4'>
+              {prev && (
+                <div className='text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 object-left'>
+                  <Link href={`/blogs/${prev.slug}`}>← Previous</Link>
+                </div>
+              )}
+              {next && (
+                <div className='text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 ml-auto'>
+                  <Link href={`/blogs/${next.slug}`}>Next →</Link>
+                </div>
+              )}
+            </div>
+          )}
+        </article>
       )}
     </Layout>
   )
