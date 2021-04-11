@@ -5,7 +5,7 @@ import PostTitle from '../components/post-title'
 
 export default function PostHeader({ title, coverImage, date, author }) {
   return (
-    <div className='w-11/12 md:w-8/12 mx-auto'>
+    <>
       <div className='mb-6 md:mb-14 sm:mx-0'>
         <CoverImage title={title} url={coverImage.url} />
       </div>
@@ -16,6 +16,6 @@ export default function PostHeader({ title, coverImage, date, author }) {
           <DateComponent dateString={date} />
         </div>
       </div>
-    </div>
+    </>
   )
 }

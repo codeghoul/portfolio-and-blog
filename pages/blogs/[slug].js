@@ -27,7 +27,7 @@ export default function Post({ preview, post, next, prev }) {
         <PostTitle>Loading…</PostTitle>
       ) : (
         <>
-          <article>
+          <article className='w-11/12 md:w-8/12 mx-auto'>
             <PostHeader
               title={post.title}
               coverImage={post.coverImage}
@@ -37,7 +37,7 @@ export default function Post({ preview, post, next, prev }) {
             <PostBody content={post.content} />
             <SectionSeparator />
             {(next || prev) && (
-              <div className='w-11/12 md:w-8/12 mx-auto flex py-4 '>
+              <div className='flex py-4'>
                 {prev && (
                   <div className='text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 object-left'>
                     <Link href={`/blogs/${prev.slug}`}>← Previous</Link>
