@@ -11,27 +11,24 @@ export default function HomePage() {
         url={siteMetadata.siteUrl}
       />
       <section className='text-gray-600 dark:text-gray-300'>
-        <div className='mx-auto flex px-5 py-18 items-center justify-center flex-col'>
-          {/* <img
-              className='lg:w-2/6 md:w-3/6 w-5/6 object-cover object-center rounded'
-              alt='hero'
-              src='/images/myself.png'
-            /> */}
+        <div className='mx-auto w-5/6 flex py-18 items-center justify-center flex-col'>
           <div className='text-center w-full mt-20 md:mt-32 lg:mt-48'>
-            <h1 className='title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 dark:text-gray-200'>
-              Hi! I'm Jayesh!
+            <h1
+              className='text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4'
+            >
+              <div className='animate-wave inline-block'>👋🏼</div>&nbsp; Welcome to my &nbsp;
+              <span className='bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-400'>
+              space!
+              </span>
             </h1>
             <p className='mb-8 leading-relaxed'>
-              For the past 1 year, I’ve been working as a Backend Developer at
-              GlobalLogic Inc. I have a sound knowledge of Microservice
-              Architecture & Spring Framework is my weapon of choice though I do
-              have some background in Frontend Development and I love dabbling
-              in React.js & Gatsby during my free time.
+              I'm a Software Engineer with 2.5+ years of experience who loves all
+              things engineering and passionate ✨ about writing clean, future-proof code.
             </p>
             <p className='mb-8 leading-relaxed'>
-              I’ve always been good at problem-solving & building new things.
-              Being a passionate learner, I look forward to expanding my
-              experience across different industries & technologies.
+              When I'm not helping Ula build their logistics charter for empowering
+              small retailers in Indonesia, I'm coding, traveling or learning
+              more about the world, One day at a time!
             </p>
           </div>
         </div>

@@ -29,7 +29,7 @@ export default function ScrollToTop() {
       {isVisible && (
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          className='cursor-pointer block w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 outline-none'
+          className='cursor-pointer block w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 outline-none animate-bounce'
           fill='none'
           viewBox='0 0 24 24'
           stroke='currentColor'

@@ -20,7 +20,7 @@ const links = [
 
 export default function Header() {
   return (
-    <header className='p-5 flex flex-row items-center justify-between'>
+    <header className='flex flex-row items-center justify-between p-5 pb-24 font-sans'>
       <Link href='/'>
         <a className='w-8 h-8 md:w-10 md:h-10 shadow-2xl'>
           <Image
