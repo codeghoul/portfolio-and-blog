@@ -11,7 +11,7 @@ export default function HomePage() {
         url={siteMetadata.siteUrl}
       />
       <section className='text-gray-600 dark:text-gray-300'>
-        <div className='mx-auto w-5/6 flex py-18 items-center justify-center flex-col'>
+        <div className='mx-auto w-5/6 flex items-center justify-center flex-col'>
           <div className='text-center w-full mt-20 md:mt-32 lg:mt-48'>
             <h1 className='text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4'>
               <div className='animate-wave inline-block'>👋🏼</div>&nbsp; Welcome

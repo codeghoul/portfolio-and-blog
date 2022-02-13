@@ -11,6 +11,15 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            img: {
+              margin: 'auto',
+            },
+          },
+        },
+      },
       keyframes: {
         wave: {
           '0%': { transform: 'rotate(0.0deg)' },
@@ -25,8 +34,8 @@ module.exports = {
       },
       animation: {
         wave: 'wave 1.5s infinite',
-      }
-    }
+      },
+    },
   },
   variants: {
     typography: ['dark'],

@@ -1,11 +1,17 @@
 import { FaGithub as Github } from 'react-icons/fa'
 import { FaExternalLinkAlt as External } from 'react-icons/fa'
+import { FaLinkedin as LinkedIn } from 'react-icons/fa'
+import { FaTwitter as Twitter } from 'react-icons/fa'
+import { FaMailBulk as Mail } from 'react-icons/fa'
 
 // Icons taken from: https://simpleicons.org/
 
 const components = {
   github: Github,
   external: External,
+  linkedin: LinkedIn,
+  twitter: Twitter,
+  mail: Mail,
 }
 
 const SocialIcon = ({ kind, href, size = 8 }) => {
