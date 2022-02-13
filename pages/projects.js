@@ -16,35 +16,43 @@ export default function Projects({ preview, projects }) {
         {projects.map((project) => {
           return (
             <div key={project.name}>
-              <div className='p-5 shadow-lg hover:shadow-xl h-full border border-current'>
-                <h3 className='text-lg lg:text-xl mb-3 leading-snug'>
-                  {project.name}
-                </h3>
-                <p className='text-sm lg:text-md leading-relaxed mb-4'>
-                  {project.description}
-                </p>
-                <div className='flex flex-row justify-between my-2'>
-                  {project.github && (
-                    <SocialIcon href={project.github} kind='github' size={6} />
-                  )}
-                  {project.website && (
-                    <SocialIcon
-                      href={project.website}
-                      kind='external'
-                      size={6}
-                    />
-                  )}
+              <div className='p-5 shadow-lg hover:shadow-xl h-full border border-current flex flex-col justify-between'>
+                <div>
+                  <h3 className='text-lg lg:text-xl mb-3 leading-snug font-mono'>
+                    {project.name}
+                  </h3>
+                  <p className='text-sm lg:text-md leading-relaxed mb-4 font-mono'>
+                    {project.description}
+                  </p>
                 </div>
-                <div className='flex flex-row flex-wrap'>
-                  {project.tags &&
-                    project.tags.split(', ').map((tag) => (
-                      <p
-                        className='text-sm mr-2 text-gray-600 dark:text-gray-300 leading-tight'
-                        key={tag}
-                      >
-                        #{tag}
-                      </p>
-                    ))}
+                <div>
+                  <div className='flex flex-row flex-wrap mt-4 mb-4'>
+                    {project.tags &&
+                      project.tags.split(', ').map((tag) => (
+                        <p
+                          className='text-sm mr-2 text-gray-600 dark:text-gray-300 leading-tight font-extralight'
+                          key={tag}
+                        >
+                          #{tag}
+                        </p>
+                      ))}
+                  </div>
+                  <div className='flex flex-row justify-between'>
+                    {project.github && (
+                      <SocialIcon
+                        href={project.github}
+                        kind='github'
+                        size={6}
+                      />
+                    )}
+                    {project.website && (
+                      <SocialIcon
+                        href={project.website}
+                        kind='external'
+                        size={6}
+                      />
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

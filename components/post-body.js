@@ -1,7 +1,7 @@
 export default function PostBody({ content }) {
   return (
     <div
-      className='prose dark:prose-dark lg:prose-xl max-w-none'
+      className='prose prose-blue lg:prose-xl dark:text-white mx-auto max-w-none'
       dangerouslySetInnerHTML={{ __html: content }}
     />
   )

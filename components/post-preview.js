@@ -32,13 +32,13 @@ export default function PostPreview({
         )}
       </div>
       <div className='p-5'>
-        <h3 className='text-xl lg:text-3xl mb-3 leading-snug'>
+        <h3 className='text-lg lg:text-2xl mb-3 leading-snug font-mono'>
           <Link as={`/blogs/${slug}`} href='/blogs/[slug]'>
             <a className='hover:no-underline cursor-pointer'>{title}</a>
           </Link>
         </h3>
         <DateComponent dateString={date} />
-        <p className='text-md lg:text-lg leading-relaxed mt-2 mb-2 line-clamp-2 lg:line-clamp-3'>
+        <p className='text-sm lg:text-md leading-relaxed mt-2 mb-2 line-clamp-2 lg:line-clamp-3 font-mono'>
           {excerpt}
         </p>
       </div>

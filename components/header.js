@@ -31,7 +31,7 @@ export default function Header() {
           />
         </a>
       </Link>
-      <nav className='flex items-center text-gray-600 dark:text-gray-300'>
+      <nav className='flex items-center text-gray-600 dark:text-gray-300 font-mono'>
         {links.map((link) => (
           <NavLink link={link} key={link.name} />
         ))}

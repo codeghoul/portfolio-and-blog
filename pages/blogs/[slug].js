@@ -39,12 +39,12 @@ export default function Post({ preview, post, next, prev }) {
             <div className='flex py-4'>
               {prev && (
                 <div className='text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 object-left'>
-                  <Link href={`/blogs/${prev.slug}`}>← Previous</Link>
+                  <Link href={`/blogs/${prev.slug}`}>👈🏼 Previous</Link>
                 </div>
               )}
               {next && (
                 <div className='text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 ml-auto'>
-                  <Link href={`/blogs/${next.slug}`}>Next →</Link>
+                  <Link href={`/blogs/${next.slug}`}>Next 👉🏼</Link>
                 </div>
               )}
             </div>
