@@ -11,9 +11,7 @@ export default function Layout({ preview, children }) {
       {preview && <Alert />}
       <Meta />
       <Header />
-      <main>
-        <Container>{children}</Container>
-      </main>
+      <Container>{children}</Container>
       <ScrollToTop />
       <Footer />
     </>
