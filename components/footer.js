@@ -2,7 +2,6 @@ import siteMetadata from '../data/siteMetadata.json'
 import SocialIcon from './social-icons'
 
 export default function Footer() {
-  console.log(siteMetadata)
   return (
     <footer className='flex flex-col items-center mt-10'>
       <div className='flex justify-center mb-3'>
