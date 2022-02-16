@@ -1,5 +1,7 @@
 import MoreStories from '../components/more-stories'
-import PostPreview from '../components/post-preview'
+import PostCard from '../components/post-card'
+import PostWidget from '../components/post-widget'
+import Categories from '../components/categories'
 import Layout from '../components/layout'
 import { getAllPostsForHome } from '../lib/api'
 import siteMetadata from '../data/siteMetadata'
@@ -7,28 +9,26 @@ import { PageSeo } from '../components/seo'
 import SectionSeparator from '../components/section-separator'
 
 export default function Blogs({ preview, allPosts }) {
-  const heroPost = allPosts[0]
-  const morePosts = allPosts.slice(1)
   return (
-    <Layout preview={preview}>
+    <Layout>
       <PageSeo
         title={`Blogs `}
         description={siteMetadata.description}
         url={`${siteMetadata.siteUrl}/blogs`}
       />
-      {heroPost && (
-        <PostPreview
-          key={heroPost.slug}
-          title={heroPost.title}
-          coverImage={heroPost.coverImage}
-          date={heroPost.date}
-          author={heroPost.author}
-          slug={heroPost.slug}
-          excerpt={heroPost.excerpt}
-        />
-      )}
-      <SectionSeparator />
-      {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+      <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
+        <div className='lg:col-span-8 col-span-1'>
+          {allPosts.map((post) => (
+            <PostCard key={post.slug} post={post} />
+          ))}
+        </div>
+        <div className='lg:col-span-4 col-span-1'>
+          <div className='lg:sticky relative top-8'>
+            <PostWidget />
+            <Categories />
+          </div>
+        </div>
+      </div>
     </Layout>
   )
 }

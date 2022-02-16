@@ -1,13 +1,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import DateComponent from '../components/date'
+import DateComponent from './date'
 
-export default function PostPreview({
-  title,
-  coverImage,
-  date,
-  excerpt,
-  slug,
+export default function PostCard({
+  post: { title, coverImage, date, excerpt, slug },
 }) {
   const image = (
     <Image

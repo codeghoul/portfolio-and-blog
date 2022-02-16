@@ -11,11 +11,9 @@ export default function Layout({ preview, children }) {
       {preview && <Alert />}
       <Meta />
       <Header />
-      <div className='min-h-screen'>
-        <main>
-          <Container>{children}</Container>
-        </main>
-      </div>
+      <main>
+        <Container>{children}</Container>
+      </main>
       <ScrollToTop />
       <Footer />
     </>
