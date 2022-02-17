@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 
 import siteMetadata from '../../data/siteMetadata'
-import { BlogSeo } from '../../components/seo'
+import { BlogSeo } from '../../components/SEO'
 import { getBlogs, getBlogDetails } from '../../services'
 import Layout from '../../components/Layout'
 import AdjacentBlogs from '../../components/AdjacentBlogs'
@@ -36,7 +36,7 @@ export default function Post({ post }) {
                 slug={post.slug}
                 categories={post.categories.map((category) => category.slug)}
               />
-              <Categories />
+              {/* <Categories /> */}
             </div>
           </div>
         </div>

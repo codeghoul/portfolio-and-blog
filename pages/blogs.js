@@ -21,9 +21,9 @@ export default function Blogs({ allPosts }) {
           ))}
         </div>
         <div className='lg:col-span-4 col-span-1'>
-          <div className='lg:sticky relative top-8'>
+          <div className='lg:sticky relative'>
             <BlogWidget />
-            <Categories />
+            {/* <Categories /> */}
           </div>
         </div>
       </div>

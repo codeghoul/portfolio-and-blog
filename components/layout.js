@@ -1,8 +1,8 @@
 import Alert from './alert'
 import Meta from './Meta'
-import Header from './header'
-import Footer from './footer'
-import Container from './container'
+import Header from './Header'
+import Footer from './Footer'
+import Container from './Container'
 import ScrollToTop from './ScrollToTop'
 
 export default function Layout({ preview, children }) {

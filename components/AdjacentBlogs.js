@@ -4,12 +4,12 @@ import AdjacentBlogCard from './AdjacentBlogCard'
 import { getAdjacentBlogs } from '../services'
 
 const AdjacentBlogs = ({ createdAt, slug }) => {
-  const [adjacentPost, setAdjacentPost] = useState(null)
+  const [adjacentBlog, setAdjacentBlog] = useState(null)
   const [dataLoaded, setDataLoaded] = useState(false)
 
   useEffect(() => {
     getAdjacentBlogs(createdAt, slug).then((result) => {
-      setAdjacentPost(result)
+      setAdjacentBlog(result)
       setDataLoaded(true)
     })
   }, [slug])
@@ -18,26 +18,26 @@ const AdjacentBlogs = ({ createdAt, slug }) => {
     <div className='grid grid-cols-1 lg:grid-cols-8 gap-12 mb-8'>
       {dataLoaded && (
         <>
-          {adjacentPost.previous && (
+          {adjacentBlog.previous && (
             <div
               className={`${
-                adjacentPost.next
+                adjacentBlog.next
                   ? 'col-span-1 lg:col-span-4'
                   : 'col-span-1 lg:col-span-8'
               } adjacent-post rounded-lg relative h-72`}
             >
-              <AdjacentPostCard post={adjacentPost.previous} position='LEFT' />
+              <AdjacentBlogCard post={adjacentBlog.previous} position='LEFT' />
             </div>
           )}
-          {adjacentPost.next && (
+          {adjacentBlog.next && (
             <div
               className={`${
-                adjacentPost.previous
+                adjacentBlog.previous
                   ? 'col-span-1 lg:col-span-4'
                   : 'col-span-1 lg:col-span-8'
               } adjacent-post rounded-lg relative h-72`}
             >
-              <AdjacentPostCard post={adjacentPost.next} position='RIGHT' />
+              <AdjacentBlogCard post={adjacentBlog.next} position='RIGHT' />
             </div>
           )}
         </>

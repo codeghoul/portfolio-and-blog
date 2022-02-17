@@ -122,7 +122,7 @@ export const getBlogDetails = async (slug) => {
         createdAt
         slug
         content {
-          html
+          raw
         }
         categories {
           ... on Category {
