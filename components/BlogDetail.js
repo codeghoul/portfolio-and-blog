@@ -68,8 +68,7 @@ const BlogDetail = ({ post }) => {
       className='object-center absolute h-80 w-full object-cover shadow-lg'
       src={post.coverImage.url}
       alt={`Cover Image for ${post.title}`}
-      width={post.coverImage.width}
-      height={post.coverImage.height}
+      layout='fill'
     />
   )
 
