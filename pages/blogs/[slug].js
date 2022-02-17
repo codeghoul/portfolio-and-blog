@@ -23,7 +23,7 @@ export default function Post({ post }) {
         <BlogSeo url={`${siteMetadata.siteUrl}/blogs/${post.slug}`} {...post} />
       )}
       {router.isFallback ? (
-        <PostTitle>Loading…</PostTitle>
+        <h1>Loading…</h1>
       ) : (
         <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
           <div className='col-span-1 lg:col-span-8'>
