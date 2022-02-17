@@ -12,8 +12,6 @@ const Categories = () => {
     })
   }, [])
 
-  console.log(categories)
-
   return (
     <div className='shadow-lg p-8 mb-8 hover:shadow-xl border border-current'>
       <h3 className='text-xl mb-8 border-b pb-4'>Categories</h3>

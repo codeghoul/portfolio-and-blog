@@ -47,9 +47,9 @@ export const PageSeo = ({ title, description, url }) => {
   )
 }
 
-export const BlogSeo = ({ title, excerpt, date, url, tags, coverImage }) => {
-  const publishedAt = new Date(date).toISOString()
-  const modifiedAt = new Date(date).toISOString()
+export const BlogSeo = ({ title, excerpt, createdAt, url, tags, coverImage }) => {
+  const publishedAt = new Date(createdAt).toISOString()
+  const modifiedAt = new Date(createdAt).toISOString()
   let imagesArr = [coverImage.url]
 
   const featuredImages = imagesArr.map((img) => {
