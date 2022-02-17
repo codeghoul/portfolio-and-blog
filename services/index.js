@@ -2,7 +2,7 @@ import { request, gql } from 'graphql-request'
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
 
-export const getPosts = async () => {
+export const getBlogs = async () => {
   const query = gql`
     query MyQuery {
       postsConnection {
@@ -35,7 +35,7 @@ export const getPosts = async () => {
   return result.postsConnection.edges
 }
 
-export const getRecentPosts = async () => {
+export const getRecentBlogs = async () => {
   const query = gql`
     query GetPostDetails() {
       posts(
@@ -58,7 +58,7 @@ export const getRecentPosts = async () => {
   return result.posts
 }
 
-export const getSimilarPosts = async (categories, slug) => {
+export const getSimilarBlogs = async (categories, slug) => {
   const query = gql`
     query GetPostDetails($slug: String!, $categories: [String!]) {
       posts(
@@ -99,7 +99,7 @@ export const getCategories = async () => {
   return result.categories
 }
 
-export const getPostDetails = async (slug) => {
+export const getBlogDetails = async (slug) => {
   const query = gql`
     query GetPostDetails($slug: String!) {
       post(where: { slug: $slug }) {
@@ -139,7 +139,7 @@ export const getPostDetails = async (slug) => {
   return result.post
 }
 
-export const getAdjacentPosts = async (createdAt, slug) => {
+export const getAdjacentBlogs = async (createdAt, slug) => {
   const query = gql`
     query GetAdjacentPosts($createdAt: DateTime!, $slug: String!) {
       next: posts(
@@ -191,40 +191,3 @@ export const getAllProjects = async () => {
 
   return result.projects
 }
-
-// export const getCategoryPost = async (slug) => {
-//   const query = gql`
-//     query GetCategoryPost($slug: String!) {
-//       postsConnection(where: { categories_some: { slug: $slug } }) {
-//         edges {
-//           cursor
-//           node {
-//             author {
-//               bio
-//               name
-//               id
-//               photo {
-//                 url
-//               }
-//             }
-//             createdAt
-//             slug
-//             title
-//             excerpt
-//             featuredImage {
-//               url
-//             }
-//             categories {
-//               name
-//               slug
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `
-
-//   const result = await request(graphqlAPI, query, { slug })
-
-//   return result.postsConnection.edges
-// }

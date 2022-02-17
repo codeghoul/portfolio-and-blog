@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import moment from 'moment'
-import DateComponent from '../components/date'
+import Date from './date'
 
-export default function PostCard({
+export default function BlogCard({
   post: { title, coverImage, createdAt, excerpt, slug, authors },
 }) {
   const image = (
@@ -28,7 +28,7 @@ export default function PostCard({
             <a className='hover:no-underline cursor-pointer'>{title}</a>
           </Link>
         </h1>
-        <DateComponent dateString={moment(createdAt).format('MMM DD, YYYY')} />
+        <Date dateString={moment(createdAt).format('MMM DD, YYYY')} />
         <p className='text-sm lg:text-md leading-relaxed mt-2 lg:mb-2 line-clamp-2 lg:line-clamp-3 font-mono'>
           {excerpt}
         </p>

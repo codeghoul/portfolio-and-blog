@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 
-import AdjacentPostCard from '../components/adjacent-post.card'
-import { getAdjacentPosts } from '../services'
+import AdjacentBlogCard from './AdjacentBlogCard'
+import { getAdjacentBlogs } from '../services'
 
-const AdjacentPosts = ({ createdAt, slug }) => {
+const AdjacentBlogs = ({ createdAt, slug }) => {
   const [adjacentPost, setAdjacentPost] = useState(null)
   const [dataLoaded, setDataLoaded] = useState(false)
 
   useEffect(() => {
-    getAdjacentPosts(createdAt, slug).then((result) => {
+    getAdjacentBlogs(createdAt, slug).then((result) => {
       setAdjacentPost(result)
       setDataLoaded(true)
     })
@@ -46,4 +46,4 @@ const AdjacentPosts = ({ createdAt, slug }) => {
   )
 }
 
-export default AdjacentPosts
+export default AdjacentBlogs

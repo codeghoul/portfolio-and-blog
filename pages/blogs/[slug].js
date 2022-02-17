@@ -3,12 +3,12 @@ import { useRouter } from 'next/router'
 
 import siteMetadata from '../../data/siteMetadata'
 import { BlogSeo } from '../../components/seo'
-import Layout from '../../components/layout'
-import PostDetail from '../../components/post-detail'
-import Categories from '../../components/categories'
-import PostWidget from '../../components/post-widget'
-import { getPosts, getPostDetails } from '../../services'
-import AdjacentPosts from '../../sections/AdjacentPosts'
+import { getBlogs, getBlogDetails } from '../../services'
+import Layout from '../../components/Layout'
+import AdjacentBlogs from '../../components/AdjacentBlogs'
+import BlogDetail from '../../components/BlogDetail'
+import BlogWidget from '../../components/BlogWidget'
+import Categories from '../../components/Categories'
 
 export default function Post({ post }) {
   const router = useRouter()
@@ -27,12 +27,12 @@ export default function Post({ post }) {
       ) : (
         <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
           <div className='col-span-1 lg:col-span-8'>
-            <PostDetail post={post} />
-            <AdjacentPosts slug={post.slug} createdAt={post.createdAt} />
+            <BlogDetail post={post} />
+            <AdjacentBlogs slug={post.slug} createdAt={post.createdAt} />
           </div>
           <div className='col-span-1 lg:col-span-4'>
             <div className='relative lg:sticky top-8'>
-              <PostWidget
+              <BlogWidget
                 slug={post.slug}
                 categories={post.categories.map((category) => category.slug)}
               />
@@ -47,7 +47,7 @@ export default function Post({ post }) {
 
 // Fetch data at build time
 export async function getStaticProps({ params }) {
-  const data = await getPostDetails(params.slug)
+  const data = await getBlogDetails(params.slug)
   return {
     props: {
       post: data,
@@ -58,7 +58,7 @@ export async function getStaticProps({ params }) {
 // Specify dynamic routes to pre-render pages based on data.
 // The HTML is generated at build time and will be reused on each request.
 export async function getStaticPaths() {
-  const posts = await getPosts()
+  const posts = await getBlogs()
   return {
     paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
     fallback: true,

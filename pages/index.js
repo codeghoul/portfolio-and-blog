@@ -1,6 +1,6 @@
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import siteMetadata from '../data/siteMetadata'
-import { PageSeo } from '../components/seo'
+import { PageSeo } from '../components/SEO'
 
 export default function HomePage() {
   return (

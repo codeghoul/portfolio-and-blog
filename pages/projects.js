@@ -1,7 +1,7 @@
 import siteMetadata from '../data/siteMetadata.json'
 import SocialIcon from '../components/social-icons'
-import Layout from '../components/layout'
-import { PageSeo } from '../components/seo'
+import Layout from '../components/Layout'
+import { PageSeo } from '../components/SEO'
 import { getAllProjects } from '../services'
 
 export default function Projects({ preview = false, projects }) {

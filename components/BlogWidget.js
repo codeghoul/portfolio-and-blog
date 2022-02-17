@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 import Link from 'next/link'
-import { getRecentPosts, getSimilarPosts } from '../services'
-import DateComponent from './date'
+import { getRecentBlogs, getSimilarBlogs } from '../services'
+import Date from './Date'
 
-const PostWidget = ({ categories, slug }) => {
+const BlogWidget = ({ categories, slug }) => {
   const [relatedPosts, setRelatedPosts] = useState([])
 
   useEffect(() => {
     if (slug) {
-      getSimilarPosts(categories, slug).then((result) =>
+      getSimilarBlogs(categories, slug).then((result) =>
         setRelatedPosts(result)
       )
     } else {
-      getRecentPosts().then((result) => setRelatedPosts(result))
+      getRecentBlogs().then((result) => setRelatedPosts(result))
     }
   }, [])
 
@@ -37,9 +37,7 @@ const PostWidget = ({ categories, slug }) => {
                 {post.title}
               </a>
             </Link>
-            <DateComponent
-              dateString={moment(post.createdBy).format('MMM DD, YYYY')}
-            />
+            <Date dateString={moment(post.createdBy).format('MMM DD, YYYY')} />
           </div>
         </div>
       ))}
@@ -47,4 +45,4 @@ const PostWidget = ({ categories, slug }) => {
   )
 }
 
-export default PostWidget
+export default BlogWidget

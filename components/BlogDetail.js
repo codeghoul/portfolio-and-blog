@@ -1,12 +1,12 @@
 import React from 'react'
 
 import Image from 'next/image'
-import DateComponent from './date'
+import Date from './date'
 import moment from 'moment'
 
-import PostBody from './post-body'
+import BlogBody from './BlogBody'
 
-const PostDetail = ({ post }) => {
+const BlogDetail = ({ post }) => {
   const image = (
     <Image
       className='object-top absolute h-80 w-full object-cover shadow-lg'
@@ -25,17 +25,15 @@ const PostDetail = ({ post }) => {
       </div>
       <div className='px-4 lg:px-0'>
         <div className='flex items-center mb-8'>
-          <DateComponent
-            dateString={moment(post.createdAt).format('MMM DD, YYYY')}
-          />
+          <Date dateString={moment(post.createdAt).format('MMM DD, YYYY')} />
         </div>
       </div>
-      <h1 className='text-left mb-3 cursor-pointer text-lg lg:text-2xl leading-snug font-mono'>{post.title}</h1>
-      <PostBody content={post.content.html} />
+      <h1 className='text-left mb-3 cursor-pointer text-lg lg:text-2xl leading-snug font-mono'>
+        {post.title}
+      </h1>
+      <BlogBody content={post.content.html} />
     </article>
   )
 }
 
-PostDetail.propTypes = {}
-
-export default PostDetail
+export default BlogDetail

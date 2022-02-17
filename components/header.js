@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import NavLink from './nav-link'
-import DarkModeButton from './dark-mode-button'
+import NavLink from './NavLink'
+import DarkModeButton from './DarkModeButton'
 
 const links = [
   {

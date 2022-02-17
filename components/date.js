@@ -1,4 +1,4 @@
-export default function DateComponent({ dateString }) {
+export default function Date({ dateString }) {
   return (
     <time
       dateTime={dateString}
