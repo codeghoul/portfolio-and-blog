@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    domains: ['images.ctfassets.net'],
+    domains: ['images.ctfassets.net', 'media.graphcms.com'],
   },
   webpack: (config) => {
     config.module.rules.push({

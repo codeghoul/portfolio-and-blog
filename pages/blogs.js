@@ -1,41 +1,39 @@
-import MoreStories from '../components/more-stories'
-import PostPreview from '../components/post-preview'
-import Layout from '../components/layout'
-import { getAllPostsForHome } from '../lib/api'
+import BlogCard from '../components/BlogCard'
+import BlogWidget from '../components/BlogWidget'
+import Categories from '../components/Categories'
+import Layout from '../components/Layout'
+import { getBlogs } from '../services'
 import siteMetadata from '../data/siteMetadata'
-import { PageSeo } from '../components/seo'
-import SectionSeparator from '../components/section-separator'
+import { PageSeo } from '../components/SEO'
 
-export default function Blogs({ preview, allPosts }) {
-  const heroPost = allPosts[0]
-  const morePosts = allPosts.slice(1)
+export default function Blogs({ allPosts }) {
   return (
-    <Layout preview={preview}>
+    <Layout>
       <PageSeo
         title={`Blogs `}
         description={siteMetadata.description}
         url={`${siteMetadata.siteUrl}/blogs`}
       />
-      {heroPost && (
-        <PostPreview
-          key={heroPost.slug}
-          title={heroPost.title}
-          coverImage={heroPost.coverImage}
-          date={heroPost.date}
-          author={heroPost.author}
-          slug={heroPost.slug}
-          excerpt={heroPost.excerpt}
-        />
-      )}
-      <SectionSeparator />
-      {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+      <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
+        <div className='lg:col-span-8 col-span-1'>
+          {allPosts.map((post) => (
+            <BlogCard key={post.node.slug} post={post.node} />
+          ))}
+        </div>
+        <div className='lg:col-span-4 col-span-1'>
+          <div className='lg:sticky relative'>
+            <BlogWidget />
+            {/* <Categories /> */}
+          </div>
+        </div>
+      </div>
     </Layout>
   )
 }
 
-export async function getStaticProps({ preview = false }) {
-  const allPosts = (await getAllPostsForHome(preview)) ?? []
+export async function getStaticProps() {
+  const allPosts = (await getBlogs()) ?? []
   return {
-    props: { preview, allPosts },
+    props: { allPosts },
   }
 }

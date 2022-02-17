@@ -1,10 +1,10 @@
 import siteMetadata from '../data/siteMetadata.json'
 import SocialIcon from '../components/social-icons'
-import Layout from '../components/layout'
-import { PageSeo } from '../components/seo'
-import { getAllProjects } from '../lib/api'
+import Layout from '../components/Layout'
+import { PageSeo } from '../components/SEO'
+import { getAllProjects } from '../services'
 
-export default function Projects({ preview, projects }) {
+export default function Projects({ preview = false, projects }) {
   return (
     <Layout preview={preview}>
       <PageSeo
@@ -28,7 +28,7 @@ export default function Projects({ preview, projects }) {
                 <div>
                   <div className='flex flex-row flex-wrap mt-4 mb-4'>
                     {project.tags &&
-                      project.tags.split(', ').map((tag) => (
+                      project.tags.map((tag) => (
                         <p
                           className='text-sm mr-2 text-gray-600 dark:text-gray-300 leading-tight font-extralight'
                           key={tag}
@@ -38,14 +38,14 @@ export default function Projects({ preview, projects }) {
                       ))}
                   </div>
                   <div className='flex flex-row justify-between'>
-                    {project.github && (
+                    {project.sourceCode && (
                       <SocialIcon
                         href={project.github}
                         kind='github'
                         size={6}
                       />
                     )}
-                    {project.website && (
+                    {project.demo && (
                       <SocialIcon
                         href={project.website}
                         kind='external'
@@ -63,9 +63,9 @@ export default function Projects({ preview, projects }) {
   )
 }
 
-export async function getStaticProps({ preview = false }) {
-  const projects = (await getAllProjects(preview)) ?? []
+export async function getStaticProps() {
+  const projects = (await getAllProjects()) ?? []
   return {
-    props: { preview, projects },
+    props: { projects },
   }
 }

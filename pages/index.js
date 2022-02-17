@@ -1,6 +1,6 @@
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import siteMetadata from '../data/siteMetadata'
-import { PageSeo } from '../components/seo'
+import { PageSeo } from '../components/SEO'
 
 export default function HomePage() {
   return (
@@ -10,7 +10,7 @@ export default function HomePage() {
         description={siteMetadata.description}
         url={siteMetadata.siteUrl}
       />
-      <section className='text-gray-600 dark:text-gray-300 pt-16'>
+      <section className='text-gray-600 dark:text-gray-300 lg:pt-16'>
         <div className='mx-auto w-5/6 flex items-center justify-center flex-col'>
           <div className='text-center w-full mt-20 md:mt-32 lg:mt-48'>
             <h1 className='text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4'>
