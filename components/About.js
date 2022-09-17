@@ -15,6 +15,24 @@ const About = () => {
         transition={{ duration: 1.2 }}
         className='-mb-20 md:mb-0 flex-shrink-9 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]'
       ></motion.img>
+
+      <div className='space-y-10 px-0 md:px-10'>
+        <h4 className='text-4xl font-semibold'>
+          Here is a{' '}
+          <span className='underline decoration-cyan-400'>little</span>{' '}
+          background
+        </h4>
+        <p className='mb-8 leading-relaxed'>
+          I'm a Software Engineer with a little over 3 years of experience who
+          loves all things engineering and passionate ✨ about writing clean,
+          future-proof code.
+        </p>
+        <p className='mb-8 leading-relaxed'>
+          When I'm not helping Ula build their logistics charter for empowering
+          small retailers in Indonesia, I'm coding, traveling or learning more
+          about the world, One day at a time!
+        </p>
+      </div>
     </div>
   )
 }
