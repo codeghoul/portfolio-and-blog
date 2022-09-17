@@ -3,17 +3,15 @@ import Meta from './Meta'
 import Header from './Header'
 import Footer from './Footer'
 import Container from './Container'
-import ScrollToTop from './ScrollToTop'
 
 export default function Layout({ preview, children }) {
   return (
-    <>
+    <div className='snap-y snap-mandatory overflow-scroll z-0'>
       {preview && <Alert />}
       <Meta />
       <Header />
       <Container>{children}</Container>
-      <ScrollToTop />
       <Footer />
-    </>
+    </div>
   )
 }

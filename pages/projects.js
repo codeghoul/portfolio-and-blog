@@ -1,5 +1,5 @@
 import siteMetadata from '../data/siteMetadata.json'
-import SocialIcon from '../components/social-icons'
+import { SocialIcon } from 'react-social-icons'
 import Layout from '../components/Layout'
 import { PageSeo } from '../components/SEO'
 import { getAllProjects } from '../services'
@@ -36,22 +36,6 @@ export default function Projects({ preview = false, projects }) {
                           #{tag}
                         </p>
                       ))}
-                  </div>
-                  <div className='flex flex-row justify-between'>
-                    {project.sourceCode && (
-                      <SocialIcon
-                        href={project.github}
-                        kind='github'
-                        size={6}
-                      />
-                    )}
-                    {project.demo && (
-                      <SocialIcon
-                        href={project.website}
-                        kind='external'
-                        size={6}
-                      />
-                    )}
                   </div>
                 </div>
               </div>

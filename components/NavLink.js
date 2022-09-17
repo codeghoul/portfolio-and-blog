@@ -7,7 +7,7 @@ export default function NavLink({ link: { name, href } }) {
   return (
     <Link href={href}>
       <a
-        className={`m-1 tracking-widest font-medium text-sm lg:text-base text-gray-900 sm:ml-4 dark:text-gray-100 ${
+        className={`m-1 tracking-widest font-medium text-sm text-gray-900 sm:ml-4 dark:text-gray-100 ${
           router.asPath === href ? 'line-through' : ''
         }`}
       >

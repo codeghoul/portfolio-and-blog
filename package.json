@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "framer-motion": "^7.3.5",
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",
     "moment": "^2.29.4",
@@ -20,6 +21,8 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-multi-carousel": "^2.8.2",
+    "react-simple-typewriter": "^3.0.1",
+    "react-social-icons": "^5.14.0",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
     "sass": "^1.54.9"

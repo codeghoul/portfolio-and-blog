@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { HiChevronDoubleUp } from 'react-icons/hi'
+// import { HiChevronDoubleUp } from 'react-icons/hi'
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false)
