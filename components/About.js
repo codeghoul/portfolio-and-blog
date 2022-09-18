@@ -24,7 +24,9 @@ const About = () => {
       <div className='space-y-10 px-0 md:px-10'>
         <h4 className='text-4xl font-semibold'>
           Here is a{' '}
-          <span className='underline decoration-cyan-400'>little</span>{' '}
+          <span className='bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-400'>
+            little
+          </span>{' '}
           background
         </h4>
         <p className='mb-8 leading-relaxed'>
