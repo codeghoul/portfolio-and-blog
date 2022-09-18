@@ -6,12 +6,12 @@ import Container from './Container'
 
 export default function Layout({ preview, children }) {
   return (
-    <div className='snap-y snap-mandatory overflow-scroll z-0'>
+    <>
       {preview && <Alert />}
       <Meta />
       <Header />
-      <Container>{children}</Container>
+      {children}
       <Footer />
-    </div>
+    </>
   )
 }
