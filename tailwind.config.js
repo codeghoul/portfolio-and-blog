@@ -11,8 +11,6 @@ module.exports = {
     purgeLayersByDefault: true,
   },
   darkMode: 'class',
-  purge: false,
-  darkMode: 'class',
   theme: {
     extend: {
       typography: {
@@ -40,9 +38,6 @@ module.exports = {
         wave: 'wave 1.5s infinite',
       },
     },
-  },
-  variants: {
-    typography: ['dark'],
   },
   plugins: [
     require('@tailwindcss/typography'),
