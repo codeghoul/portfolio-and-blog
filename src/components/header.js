@@ -24,7 +24,7 @@ export default function Header() {
       <Link href='/'>
         <a className='w-8 h-8 md:w-10 md:h-10 shadow-2xl'>
           <Image
-            src='/favicon/favicon-96x96.png'
+            src='/icons/favicon-96x96.png'
             width={96}
             height={96}
             alt='Home Logo'

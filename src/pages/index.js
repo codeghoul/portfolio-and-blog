@@ -21,13 +21,10 @@ export default function HomePage() {
               </span>
             </h1>
             <p className='mb-8 leading-relaxed'>
-              I'm a Software Engineer with 2.5+ years of experience who loves
+              I'm a Software Engineer with 4+ years of experience who loves
               all things engineering and passionate ✨ about writing clean,
               future-proof code.
-            </p>
-            <p className='mb-8 leading-relaxed'>
-              When I'm not helping Ula build their logistics charter for
-              empowering small retailers in Indonesia, I'm coding, traveling or
+              When I'm not helping ALLEN Digital build their innovative next-gen ed-tech, I'm either coding, traveling or
               learning more about the world, One day at a time!
             </p>
           </div>
