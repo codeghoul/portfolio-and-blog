@@ -1,6 +1,5 @@
 import BlogCard from '../components/BlogCard'
 import BlogWidget from '../components/BlogWidget'
-import Categories from '../components/Categories'
 import Layout from '../components/Layout'
 import { getBlogs } from '../services'
 import siteMetadata from '../data/siteMetadata'
