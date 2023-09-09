@@ -8,8 +8,7 @@ module.exports = {
         ? {
             // the paths to all template files
             content: [
-              './src/pages/**/*.{js,jsx,ts,tsx}',
-              './src/components/**/*.{js,jsx,ts,tsx}',
+              './src/**/*.{js,ts,jsx,tsx}',
             ],
             // function used to extract class names from the templates
             defaultExtractor: (content) =>
