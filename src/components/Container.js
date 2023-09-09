@@ -1,6 +1,6 @@
 export default function Container({ children }) {
   return (
-    <main className='p-2 md:container mx-auto mb-8 min-h-screen'>
+    <main className='md:container mx-auto min-h-screen mt-20 md:mt-0'>
       {children}
     </main>
   )

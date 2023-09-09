@@ -13,16 +13,18 @@ export default function Blogs({ allPosts }) {
         description={siteMetadata.description}
         url={`${siteMetadata.siteUrl}/blogs`}
       />
-      <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
-        <div className='lg:col-span-8 col-span-1'>
-          {allPosts.map((post) => (
-            <BlogCard key={post.node.slug} post={post.node} />
-          ))}
-        </div>
-        <div className='lg:col-span-4 col-span-1'>
-          <div className='lg:sticky relative'>
-            <BlogWidget />
-            {/* <Categories /> */}
+      <div className='lg:p-10 lg:m-10'>
+        <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
+          <div className='lg:col-span-8 col-span-1'>
+            {allPosts.map((post) => (
+              <BlogCard key={post.node.slug} post={post.node} />
+            ))}
+          </div>
+          <div className='lg:col-span-4 col-span-1'>
+            <div className='lg:sticky relative'>
+              <BlogWidget />
+              {/* <Categories /> */}
+            </div>
           </div>
         </div>
       </div>
