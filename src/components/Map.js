@@ -1,6 +1,5 @@
 import React from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import 'leaflet/dist/leaflet.css'
 
 const customIcon = L.icon({
   iconUrl: '/icons/navigation.png',
