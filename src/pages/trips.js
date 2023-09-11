@@ -14,7 +14,7 @@ export default function Trips({ preview = false, trips }) {
         description={siteMetadata.description}
         url={`${siteMetadata.siteUrl}/maps`}
       />
-      <div className='lg:h-[56rem] h-[32rem] p-2 shadow-lg md:p-8 mb-8 hover:shadow-xl border border-current'>
+      <div className='lg:h-224 h-128 p-2 shadow-lg md:p-8 mb-8 hover:shadow-xl border border-current'>
         <Map places={places} />
       </div>
       <div className='p-6 text-center'>
