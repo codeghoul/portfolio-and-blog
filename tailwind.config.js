@@ -12,6 +12,10 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      height: {
+        128: '32rem',
+        224: '56rem',
+      },
       typography: {
         DEFAULT: {
           css: {

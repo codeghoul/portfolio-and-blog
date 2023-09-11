@@ -16,6 +16,10 @@ const links = [
     name: 'Projects',
     href: '/projects',
   },
+  {
+    name: 'Trips',
+    href: '/trips',
+  },
 ]
 
 export default function Header() {

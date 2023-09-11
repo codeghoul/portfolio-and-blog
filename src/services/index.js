@@ -191,3 +191,17 @@ export const getAllProjects = async () => {
 
   return result.projects
 }
+
+export const getAllTrips = async () => {
+  const query = gql`
+    query GetAllTrips {
+      jsonTrips {
+        trips
+      }
+    }
+  `
+
+  const result = await request(graphqlAPI, query)
+
+  return result.jsonTrips[0].trips
+}
