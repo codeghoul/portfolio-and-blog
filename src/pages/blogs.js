@@ -9,22 +9,19 @@ export default function Blogs({ allPosts }) {
   return (
     <Layout>
       <PageSeo
-        title={`Blogs `}
+        title={`Blogs`}
         description={siteMetadata.description}
         url={`${siteMetadata.siteUrl}/blogs`}
       />
-      <div className='lg:p-10 lg:m-10'>
-        <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
-          <div className='lg:col-span-8 col-span-1'>
+      <div className='container mx-auto px-4 py-8'>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
+          <div className='col-span-1 lg:col-span-2'>
             {allPosts.map((post) => (
               <BlogCard key={post.node.slug} post={post.node} />
             ))}
           </div>
-          <div className='lg:col-span-4 col-span-1'>
-            <div className='lg:sticky relative'>
-              <BlogWidget />
-              {/* <Categories /> */}
-            </div>
+          <div className='col-span-1 relative lg:sticky top-8'>
+            <BlogWidget />
           </div>
         </div>
       </div>

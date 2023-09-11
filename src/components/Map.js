@@ -11,7 +11,7 @@ const customIcon = L.icon({
 const Map = ({ places }) => {
   return (
     <MapContainer
-      className='w-full h-full'
+      className='w-full h-full z-40'
       center={[12.9716, 77.5946]}
       zoom={6}
       scrollWheelZoom={true}

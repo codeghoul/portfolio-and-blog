@@ -39,7 +39,7 @@ export const getRecentBlogs = async () => {
   const query = gql`
     query GetPostDetails() {
       posts(
-        orderBy: createdAt_ASC
+        orderBy: createdAt_DESC
         last: 3
       ) {
         title
@@ -177,7 +177,7 @@ export const getAdjacentBlogs = async (createdAt, slug) => {
 export const getAllProjects = async () => {
   const query = gql`
     query GetAllProjects {
-      projects {
+      projects(orderBy: createdAt_DESC) {
         name
         description
         tags

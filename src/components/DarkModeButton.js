@@ -18,9 +18,9 @@ export default function DarkModeButton() {
 
   return (
     <button
-      aria-label='Toggle Dark Mode'
+      aria-label={`Toggle ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
       type='button'
-      className='w-10 h-10 md:w-10 md:h-10 block focus:outline-none'
+      className='w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full focus:outline-none border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 shadow-md hover:shadow-lg transition'
       onClick={switchTheme}
     >
       {isMounted && (theme === 'dark' ? <FaSun /> : <FaMoon />)}

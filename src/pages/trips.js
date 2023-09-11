@@ -10,18 +10,20 @@ export default function Trips({ preview = false, trips }) {
   return (
     <Layout preview={preview}>
       <PageSeo
-        title={`Map`}
+        title={`Trips`}
         description={siteMetadata.description}
         url={`${siteMetadata.siteUrl}/maps`}
       />
-      <div className='lg:h-224 h-128 p-2 shadow-lg md:p-8 mb-8 hover:shadow-xl border border-current'>
-        <Map places={places} />
-      </div>
-      <div className='p-6 text-center'>
-        <p className='text-xl font-bold mb-2'>
-          "No random actions, none not based on underlying principles."
-        </p>
-        <p className='text-gray-600'>- Marcus Aurelius</p>
+      <div className='lg:p-10 lg:m-10 mt-6'>
+        <div className='lg:h-224 h-128 p-2 shadow-lg md:p-8 mb-8 hover:shadow-xl border border-current'>
+          <Map places={places} />
+        </div>
+        <div className='p-6 text-center'>
+          <p className='text-xl font-bold mb-2'>
+            "No random actions, none not based on underlying principles."
+          </p>
+          <p className='text-gray-600'>- Marcus Aurelius</p>
+        </div>
       </div>
     </Layout>
   )

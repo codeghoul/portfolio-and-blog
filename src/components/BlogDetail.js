@@ -1,93 +1,96 @@
 import React from 'react'
-
 import Image from 'next/image'
 import Date from './Date'
 import moment from 'moment'
 
 const BlogDetail = ({ post }) => {
-  const getContentFragment = (index, text, obj, type) => {
+  const renderContentFragment = (index, text, obj, type) => {
     let modifiedText = text
 
     if (obj) {
       if (obj.bold) {
-        modifiedText = <b key={index}>{text}</b>
+        modifiedText = <strong key={`${index}-${type}`}>{modifiedText}</strong>
       }
 
       if (obj.italic) {
-        modifiedText = <em key={index}>{text}</em>
+        modifiedText = <em key={`${index}-${type}`}>{modifiedText}</em>
       }
 
       if (obj.underline) {
-        modifiedText = <u key={index}>{text}</u>
+        modifiedText = <u key={`${index}-${type}`}>{modifiedText}</u>
       }
     }
 
     switch (type) {
       case 'heading-three':
         return (
-          <h3 key={index} className='text-xl font-semibold mb-4'>
-            {modifiedText.map((item, i) => (
-              <React.Fragment key={i}>{item}</React.Fragment>
-            ))}
+          <h3 key={`${index}-${type}`} className='text-xl font-semibold mb-4'>
+            {modifiedText}
           </h3>
         )
       case 'paragraph':
         return (
-          <p key={index} className='mb-8'>
-            {modifiedText.map((item, i) => (
-              <React.Fragment key={i}>{item}</React.Fragment>
-            ))}
+          <p
+            key={`${index}-${type}`}
+            className='mb-4 text-gray-800 dark:text-gray-200'
+          >
+            {modifiedText}
           </p>
         )
       case 'heading-four':
         return (
-          <h4 key={index} className='text-md font-semibold mb-4'>
-            {modifiedText.map((item, i) => (
-              <React.Fragment key={i}>{item}</React.Fragment>
-            ))}
+          <h4 key={`${index}-${type}`} className='text-md font-semibold mb-4'>
+            {modifiedText}
           </h4>
         )
       case 'image':
         return (
-          <Image
-            className='mx-auto'
-            key={index}
-            alt={obj.title}
-            src={obj.src}
-            width={obj.width}
-            height={obj.height}
-          />
+          <div className='relative w-full' key={`${index}-${type}`}>
+            <Image
+              className='object-cover w-full h-[auto] md:h-auto'
+              alt={obj.title}
+              src={obj.src}
+              width={obj.width}
+              height={obj.height}
+            />
+          </div>
         )
       default:
-        return modifiedText
+        return <span key={`${index}-${type}`}>{modifiedText}</span>
     }
   }
 
   const image = (
     <Image
-      className='object-center absolute h-80 w-full object-cover shadow-lg'
+      className='object-center w-full object-cover shadow-lg'
       src={post.coverImage.url}
       alt={`Cover Image for ${post.title}`}
-      layout='fill'
+      layout='responsive'
+      width={1280}
+      height={720}
+      key={`cover-image-${post.id}`}
     />
   )
 
   return (
-    <article className='p-2 md:p-8 pb-12 mb-8 shadow-lg border border-current'>
-      <div className='relative overflow-hidden shadow-md pb-80 mb-6'>
-        {image}
-      </div>
+    <article className='p-4 md:p-8 pb-12 mb-8 shadow-lg border border-current bg-white dark:bg-gray-800'>
+      <div className='relative overflow-hidden shadow-md mb-6'>{image}</div>
       <div className='mb-8'>
         <Date dateString={moment(post.createdAt).format('MMM DD, YYYY')} />
       </div>
-      <h1 className='text-left mb-3 cursor-pointer text-lg lg:text-2xl leading-snug font-mono'>
+      <h1 className='text-2xl lg:text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100'>
         {post.title}
       </h1>
       {post.content.raw.children.map((typeObj, index) => {
-        const children = typeObj.children.map((item, itemindex) =>
-          getContentFragment(itemindex, item.text, item)
+        const children = typeObj.children.map((item, childIndex) =>
+          renderContentFragment(
+            index * typeObj.children.length + childIndex,
+            item.text,
+            item,
+            typeObj.type
+          )
         )
-        return getContentFragment(index, children, typeObj, typeObj.type)
+        return renderContentFragment(index, children, typeObj, typeObj.type)
       })}
     </article>
   )

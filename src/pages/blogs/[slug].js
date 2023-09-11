@@ -1,14 +1,14 @@
 import React from 'react'
 import { useRouter } from 'next/router'
+import ErrorPage from 'next/error'
 
 import siteMetadata from '../../data/siteMetadata'
 import { BlogSeo } from '../../components/SEO'
-import { getBlogs, getBlogDetails } from '../../services'
+import { getBlogDetails, getBlogs } from '../../services'
 import Layout from '../../components/Layout'
 import AdjacentBlogs from '../../components/AdjacentBlogs'
 import BlogDetail from '../../components/BlogDetail'
 import BlogWidget from '../../components/BlogWidget'
-import Categories from '../../components/Categories'
 
 export default function Post({ post }) {
   const router = useRouter()
@@ -25,18 +25,20 @@ export default function Post({ post }) {
       {router.isFallback ? (
         <h1>Loading…</h1>
       ) : (
-        <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
-          <div className='col-span-1 lg:col-span-8'>
-            <BlogDetail post={post} />
-            <AdjacentBlogs slug={post.slug} createdAt={post.createdAt} />
-          </div>
-          <div className='col-span-1 lg:col-span-4'>
-            <div className='relative lg:sticky top-8'>
-              <BlogWidget
-                slug={post.slug}
-                categories={post.categories.map((category) => category.slug)}
-              />
-              {/* <Categories /> */}
+        <div className='container mx-auto py-8 lg:py-12'>
+          <div className='grid grid-cols-1 lg:grid-cols-12 gap-8'>
+            <div className='col-span-1 lg:col-span-8'>
+              <BlogDetail post={post} />
+              <AdjacentBlogs slug={post.slug} createdAt={post.createdAt} />
+            </div>
+            <div className='col-span-1 lg:col-span-4'>
+              <div className='relative lg:sticky top-8'>
+                <BlogWidget
+                  slug={post.slug}
+                  categories={post.categories.map((category) => category.slug)}
+                />
+                {/* <Categories /> */}
+              </div>
             </div>
           </div>
         </div>
