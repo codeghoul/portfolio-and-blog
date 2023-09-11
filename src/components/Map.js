@@ -2,8 +2,8 @@ import React from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 const customIcon = L.icon({
-  iconUrl: '/icons/navigation.png',
-  iconRetinaUrl: '/icons/navigation.png',
+  iconUrl: '/icons/pin.png',
+  iconRetinaUrl: '/icons/pin.png',
   iconSize: [32, 32],
   iconAnchor: [16, 32],
 })
@@ -11,14 +11,14 @@ const customIcon = L.icon({
 const Map = ({ places }) => {
   return (
     <MapContainer
-      className='w-full h-1/2 rounded-xl shadow-lg'
+      className='w-full h-full'
       center={[12.9716, 77.5946]}
-      zoom={10}
+      zoom={6}
       scrollWheelZoom={true}
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url='https://tile.openstreetmap.org/{z}/{x}/{y}.png'
+        attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url='https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg'
       ></TileLayer>
       {places.map((place, index) => (
         <Marker

@@ -14,8 +14,14 @@ export default function Trips({ preview = false, trips }) {
         description={siteMetadata.description}
         url={`${siteMetadata.siteUrl}/maps`}
       />
-      <div className='lg:m-10 h-screen'>
+      <div className='lg:h-[56rem] h-[32rem] p-2 shadow-lg md:p-8 mb-8 hover:shadow-xl border border-current'>
         <Map places={places} />
+      </div>
+      <div className='p-6 text-center'>
+        <p className='text-xl font-bold mb-2'>
+          "No random actions, none not based on underlying principles."
+        </p>
+        <p className='text-gray-600'>- Marcus Aurelius</p>
       </div>
     </Layout>
   )

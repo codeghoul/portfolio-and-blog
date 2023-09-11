@@ -12,9 +12,9 @@ export default function HomePage() {
       />
       <section className='text-gray-600 dark:text-gray-300 min-h-full'>
         <div className='mx-auto w-11/12 flex items-center justify-center flex-col'>
-          <div className='w-full mt-20 md:mt-32 lg:mt-48'>
+          <div className='w-full mt-24 md:mt-48 lg:mt-96'>
             <h1 className='text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4'>
-              Hi! I'm&nbsp;
+              Hi, I'm&nbsp;
               <span className='bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-400'>
                 Jayesh
               </span>
