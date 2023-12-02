@@ -14,12 +14,8 @@ const links = [
     href: '/blogs',
   },
   {
-    name: 'Projects',
-    href: '/projects',
-  },
-  {
-    name: 'Trips',
-    href: '/trips',
+    name: 'Contact',
+    href: '/contact',
   },
 ]
 
@@ -36,17 +32,11 @@ export default function Header() {
 
   return (
     <header className='bg-white dark:bg-gray-800 shadow-md'>
-      <div className='container mx-auto p-5'>
+      <div className='mx-auto p-5'>
         <div className='flex justify-between items-center'>
           <div className='flex items-center'>
             <Link href='/'>
               <a className='flex items-center space-x-2'>
-                <Image
-                  src='/icons/favicon-96x96.png'
-                  width={48}
-                  height={48}
-                  alt='Home Logo'
-                />
                 <span className='text-xl text-gray-800 dark:text-gray-200 font-semibold'>
                   JYSH
                 </span>

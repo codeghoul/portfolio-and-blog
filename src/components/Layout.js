@@ -1,19 +1,12 @@
 import Alert from './Alert'
 import Meta from './Meta'
-import Header from './Header'
-import Footer from './Footer'
-import Container from './Container'
-import ScrollToTop from './ScrollToTop'
 
 export default function Layout({ preview, children }) {
   return (
-    <>
+    <div className='bg-neutral-900 min-h-screen min-w-screen'>
       {preview && <Alert />}
       <Meta />
-      <Header />
-      <Container>{children}</Container>
-      <ScrollToTop />
-      <Footer />
-    </>
+      <div className='container mx-auto'>{children}</div>
+    </div>
   )
 }

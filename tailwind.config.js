@@ -7,12 +7,16 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
-  darkMode: 'class',
   purge: false,
   darkMode: 'class',
   theme: {
+    fontFamily: {
+      'display': ['EB Garamond', 'serif'],
+      'body': ['Raleway', 'sans-serif']
+    },
     extend: {
       height: {
+        120: '28rem',
         128: '32rem',
         224: '56rem',
       },
