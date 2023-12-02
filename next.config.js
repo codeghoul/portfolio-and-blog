@@ -7,6 +7,9 @@ module.exports = {
       'images.ctfassets.net',
       'media.graphcms.com',
       'media.graphassets.com',
+      'plus.unsplash.com',
+      'cdn-images-1.medium.com',
+      'dev-to-uploads.s3.amazonaws.com',
     ],
   },
   webpack: (config) => {

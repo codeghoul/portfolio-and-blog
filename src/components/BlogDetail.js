@@ -1,98 +1,124 @@
 import React from 'react'
 import Image from 'next/image'
-import Date from './Date'
-import moment from 'moment'
+import Link from 'next/link' // Import Link from Next.js
+import { Highlight, themes } from 'prism-react-renderer'
+import Markdown from 'react-markdown'
 
-const BlogDetail = ({ post }) => {
-  const renderContentFragment = (index, text, obj, type) => {
-    let modifiedText = text
+const BlogDetail = ({ blog }) => {
+  return (
+    <article className='flex gap-2 flex-col py-8 px-10'>
+      <div className=''>
+        <Markdown
+          className='flex flex-col gap-4 font-body text-base'
+          components={{
+            img: MarkdownImage,
+            h1: MarkdownH1,
+            h2: MarkdownH2,
+            h3: MarkdownH3,
+            p: MarkdownParagraph,
+            a: MarkdownLink,
+            ol: MarkdownOrderedList,
+            ul: MarkdownUnorderedList,
+            blockquote: MarkdownBlockquote,
+            code: MarkdownCode,
+          }}
+        >
+          {blog.markdown}
+        </Markdown>
+      </div>
+    </article>
+  )
+}
 
-    if (obj) {
-      if (obj.bold) {
-        modifiedText = <strong key={`${index}-${type}`}>{modifiedText}</strong>
-      }
+const MarkdownImage = ({ alt, src }) => {
+  return (
+    <div
+      className='mx-auto max-w-xl aspect-video bg-gray-100 relative'
+      style={{ width: '100%', height: '100%' }}
+    >
+      <Image alt={alt} src={src} layout='fill' objectFit='contain' />
+    </div>
+  )
+}
 
-      if (obj.italic) {
-        modifiedText = <em key={`${index}-${type}`}>{modifiedText}</em>
-      }
+const MarkdownH1 = ({ children }) => {
+  return <h1 className='text-3xl font-display'>{children}</h1>
+}
 
-      if (obj.underline) {
-        modifiedText = <u key={`${index}-${type}`}>{modifiedText}</u>
-      }
-    }
+const MarkdownH2 = ({ children }) => {
+  return <h2 className='text-2xl font-display'>{children}</h2>
+}
 
-    switch (type) {
-      case 'heading-three':
-        return (
-          <h3 key={`${index}-${type}`} className='text-xl font-semibold mb-4'>
-            {modifiedText}
-          </h3>
-        )
-      case 'paragraph':
-        return (
-          <p
-            key={`${index}-${type}`}
-            className='mb-4 text-gray-800 dark:text-gray-200'
-          >
-            {modifiedText}
-          </p>
-        )
-      case 'heading-four':
-        return (
-          <h4 key={`${index}-${type}`} className='text-md font-semibold mb-4'>
-            {modifiedText}
-          </h4>
-        )
-      case 'image':
-        return (
-          <div className='relative w-full' key={`${index}-${type}`}>
-            <Image
-              className='object-cover w-full h-[auto] md:h-auto'
-              alt={obj.title}
-              src={obj.src}
-              width={obj.width}
-              height={obj.height}
-            />
-          </div>
-        )
-      default:
-        return <span key={`${index}-${type}`}>{modifiedText}</span>
-    }
+const MarkdownH3 = ({ children }) => {
+  return <h3 className='text-2xl font-display'>{children}</h3>
+}
+
+const MarkdownParagraph = ({ children }) => {
+  return <p className='text-sm'>{children}</p>
+}
+
+const MarkdownLink = ({ href, children }) => {
+  // Open external links in a new tab
+  const isExternal = /^(https?:|mailto:|tel:)/.test(href)
+  const linkClassName = 'border-b border-dotted border-neutral-100'
+
+  if (isExternal) {
+    return (
+      <a
+        className={linkClassName}
+        href={href}
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        {children}
+      </a>
+    )
   }
 
-  const image = (
-    <Image
-      className='object-center w-full object-cover shadow-lg'
-      src={post.coverImage.url}
-      alt={`Cover Image for ${post.title}`}
-      layout='responsive'
-      width={1280}
-      height={720}
-      key={`cover-image-${post.id}`}
-    />
+  // For internal links, use Next.js Link component
+  return (
+    <Link href={href}>
+      <a className={linkClassName}>{children}</a>
+    </Link>
   )
+}
+
+const MarkdownOrderedList = ({ children }) => {
+  return <ol className='list-decimal pl-5 text-sm'>{children}</ol>
+}
+
+const MarkdownUnorderedList = ({ children }) => {
+  return <ul className='list-disc pl-5 text-sm'>{children}</ul>
+}
+
+const MarkdownBlockquote = ({ children }) => {
+  return (
+    <blockquote className='mx-auto italic text-gray-200'>{children}</blockquote>
+  )
+}
+
+const MarkdownCode = ({ children, className }) => {
+  // Extract the language from the className, e.g., "language-jsx"
+  const language = className ? className.replace(/language-/, '') : ''
 
   return (
-    <article className='p-4 md:p-8 pb-12 mb-8 shadow-lg border border-current bg-white dark:bg-gray-800'>
-      <div className='relative overflow-hidden shadow-md mb-6'>{image}</div>
-      <div className='mb-8'>
-        <Date dateString={moment(post.createdAt).format('MMM DD, YYYY')} />
-      </div>
-      <h1 className='text-2xl lg:text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100'>
-        {post.title}
-      </h1>
-      {post.content.raw.children.map((typeObj, index) => {
-        const children = typeObj.children.map((item, childIndex) =>
-          renderContentFragment(
-            index * typeObj.children.length + childIndex,
-            item.text,
-            item,
-            typeObj.type
-          )
-        )
-        return renderContentFragment(index, children, typeObj, typeObj.type)
-      })}
-    </article>
+    <Highlight
+      code={children.trim()}
+      language={language}
+      theme={themes.oneDark}
+    >
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        <pre className={`${className} p-4 bg-gray-900 text-white rounded-md`}>
+          {tokens.map((line, i) => (
+            <div key={i} {...getLineProps({ line })}>
+              {line.map((token, key) => (
+                <span key={key} {...getTokenProps({ token })} />
+              ))}
+            </div>
+          ))}
+        </pre>
+      )}
+    </Highlight>
   )
 }
 

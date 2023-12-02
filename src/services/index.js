@@ -2,37 +2,51 @@ import { request, gql } from 'graphql-request'
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
 
-export const getBlogs = async () => {
+export const getAllBlogs = async () => {
   const query = gql`
-    query MyQuery {
+    query AllBlogs {
+      posts {
+        id
+        createdAt
+        slug
+        title
+        excerpt
+        tags
+        categories {
+          name
+        }
+      }
       postsConnection {
-        edges {
-          node {
-            createdAt
-            slug
-            title
-            coverImage {
-              url
-              width
-              height
-            }
-            excerpt
-            tags
-            categories {
-              ... on Category {
-                name
-                slug
-              }
-            }
-          }
+        aggregate {
+          count
         }
       }
     }
   `
 
   const result = await request(graphqlAPI, query)
+  return result.posts
+}
 
-  return result.postsConnection.edges
+export const getCategoryBlogs = async (category) => {
+  const query = gql`
+    query CategoryBlogs($category: String!) {
+      posts(where: { categories_some: { slug: $category } }) {
+        id
+        createdAt
+        slug
+        title
+        excerpt
+        tags
+        categories {
+          name
+        }
+      }
+    }
+  `
+
+  const result = await request(graphqlAPI, query, { category })
+  return result.posts
 }
 
 export const getRecentBlogs = async () => {
@@ -90,6 +104,9 @@ export const getCategories = async () => {
       categories {
         name
         slug
+        post {
+          id
+        }
       }
     }
   `
@@ -130,6 +147,7 @@ export const getBlogDetails = async (slug) => {
             slug
           }
         }
+        markdown
       }
     }
   `
