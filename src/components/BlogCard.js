@@ -18,7 +18,10 @@ export default function BlogCard({
       </p>
       <div className='flex justify-evenly items-center gap-2'>
         {tags.map((tag) => (
-          <p className='bg-gradient-to-br from-gray-100 to-neutral-900 text-neutral-900 text-xs lg:text-sm font-display rounded-full py-1 px-3'>
+          <p
+            key={tag}
+            className='bg-gradient-to-br from-gray-100 to-neutral-900 text-neutral-900 text-xs lg:text-sm font-display rounded-full py-1 px-3'
+          >
             {tag}
           </p>
         ))}

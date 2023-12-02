@@ -102,6 +102,7 @@ export const getCategories = async () => {
   const query = gql`
     query GetCategories {
       categories {
+        id
         name
         slug
         post {
