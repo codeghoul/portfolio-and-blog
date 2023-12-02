@@ -8,7 +8,7 @@ const BlogListing = ({ allCategories, allPosts }) => (
         <CategoryListing allCategories={allCategories} />
       </div>
       <div className='col-span-1 lg:col-span-10'>
-        {allPosts.map((post) => (
+        {allPosts?.map((post) => (
           <BlogCard key={post.id} post={post} />
         ))}
       </div>

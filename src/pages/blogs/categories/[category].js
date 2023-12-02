@@ -1,8 +1,8 @@
-import Layout from '../../components/Layout'
-import { getCategories, getCategoryBlogs } from '../../services'
-import siteMetadata from '../../data/siteMetadata'
-import { PageSeo } from '../../components/SEO'
-import BlogListing from '../../components/BlogListing'
+import Layout from '../../../components/Layout'
+import { getCategories, getCategoryBlogs } from '../../../services'
+import siteMetadata from '../../../data/siteMetadata'
+import { PageSeo } from '../../../components/SEO'
+import BlogListing from '../../../components/BlogListing'
 
 export default function Blogs({ allPosts, allCategories }) {
   return (

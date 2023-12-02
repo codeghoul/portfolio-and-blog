@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import NavLink from './NavLink'
@@ -12,10 +11,6 @@ const links = [
   {
     name: 'Blogs',
     href: '/blogs',
-  },
-  {
-    name: 'Contact',
-    href: '/contact',
   },
 ]
 
@@ -31,14 +26,14 @@ export default function Header() {
   }
 
   return (
-    <header className='bg-white dark:bg-gray-800 shadow-md'>
-      <div className='mx-auto p-5'>
+    <header className='absolute top-0 w-full'>
+      <div className='mx-auto px-10 py-5 container'>
         <div className='flex justify-between items-center'>
           <div className='flex items-center'>
             <Link href='/'>
               <a className='flex items-center space-x-2'>
-                <span className='text-xl text-gray-800 dark:text-gray-200 font-semibold'>
-                  JYSH
+                <span className='text-xl text-gray-800 dark:text-gray-200 font-display'>
+                  jysh.me
                 </span>
               </a>
             </Link>
