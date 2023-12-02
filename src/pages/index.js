@@ -12,7 +12,7 @@ const LandingPage = () => {
       />
       <section className='flex min-h-screen items-center justify-center'>
         <div className='flex flex-row mx-auto container justify-center items-center'>
-          <div className='w-[32rem] h-[32rem] -ml-[28rem] lg:ml-0 lg:w-[32rem] lg:h-[32rem] bg-gradient-to-br from-orange-300 to-green-100 dark:from-gray-100 dark:to-neutral-900 rounded-full mb-8 md:mb-0'></div>
+          <div className='w-128 h-128 -ml-120 lg:ml-0 bg-gradient-to-br from-orange-300 to-green-100 dark:from-gray-100 dark:to-neutral-900 rounded-full mb-8 md:mb-0'></div>
           <div className='w-2/3 lg:w-1/2 -ml-14 lg:-ml-28'>
             <div className='dark:text-neutral-100 text-neutral-900 text-lg md:text-4xl lg:text-6xl font-normal font-display mb-4'>
               Hey, I'm Jayesh Patel

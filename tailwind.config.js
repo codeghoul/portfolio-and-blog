@@ -20,6 +20,16 @@ module.exports = {
         128: '32rem',
         224: '56rem',
       },
+      width: {
+        120: '28rem',
+        128: '32rem',
+        224: '56rem',
+      },
+      margin: {
+        120: '28rem',
+        128: '32rem',
+        224: '56rem',
+      },
       typography: {
         DEFAULT: {
           css: {
